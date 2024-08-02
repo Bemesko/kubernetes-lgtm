@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gelf-log-generator
+spec:
+  selector:
+    matchLabels:
+      app: gelf-log-generator
+  template:
+    metadata:
+      labels:
+        app: gelf-log-generator
+    spec:
+      containers:
+        - name: gelf-log-generator
+          image: bemesko/gelf-log-generator
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
