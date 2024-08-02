@@ -1,9 +1,15 @@
 loki:
   persistence:
     enabled: false
+  isDefault: false
 
 fluent-bit:
   enabled: true
 
 promtail:
   enabled: false
+
+grafana:
+  sidecar:
+    datasources:
+      enabled: true

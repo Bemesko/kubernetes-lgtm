@@ -38,17 +38,6 @@ resource "helm_release" "prometheus_adapter" {
     value = "false"
   }
 }
-
-# resource "helm_release" "loki_stack" {
-#   name         = "loki-stack"
-#   repository   = "https://grafana.github.io/helm-charts"
-#   chart        = "loki-stack"
-#   version      = "2.10.2"
-#   reset_values = true
-
-#   values = [file("${path.module}/loki-stack-values.yaml")]
-# }
-
 resource "helm_release" "loki" {
   name       = "loki"
   repository = "https://grafana.github.io/helm-charts"
