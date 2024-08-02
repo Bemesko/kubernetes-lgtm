@@ -1,6 +1,14 @@
 prometheus:
-  prometheusSpec:
-    serviceMonitorSelectorNilUsesHelmValues: false
+  enabled: true
 
 grafana:
   adminPassword: "admin" # Change to a more secure password
+  forceDeployDatasources: true
+  forceDeployDashboards: true
+  defaultDashboardsEnabled: true
+  additionalDataSources:
+    - name: Loki
+      type: loki
+      url: http://loki-gateway.default.svc.cluster.local/
+  plugins:
+    - grafana-lokiexplore-app
