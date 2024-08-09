@@ -1,8 +1,10 @@
 storage:
   trace:
     backend: local
-minio:
-  enabled: false
+tempo:
+  metricsGenerator:
+    enabled: true
+    remoteWriteUrl: http://prometheus-operated.default.svc.cluster.local:9090/api/v1/write
 traces:
   otlp:
     grpc:
