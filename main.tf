@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "monitoring" {
   name     = "rg-monitoring"
   location = "South Central US"
@@ -33,15 +29,7 @@ resource "azurerm_kubernetes_cluster" "monitoring" {
   }
 }
 
-
 data "azurerm_kubernetes_cluster" "monitoring" {
   name                = azurerm_kubernetes_cluster.monitoring.name
   resource_group_name = azurerm_kubernetes_cluster.monitoring.resource_group_name
-}
-
-provider "kubernetes" {
-  host                   = data.azurerm_kubernetes_cluster.monitoring.kube_config[0].host
-  client_certificate     = base64decode(data.azurerm_kubernetes_cluster.monitoring.kube_config[0].client_certificate)
-  client_key             = base64decode(data.azurerm_kubernetes_cluster.monitoring.kube_config[0].client_key)
-  cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.monitoring.kube_config[0].cluster_ca_certificate)
 }

@@ -1,18 +1,3 @@
-provider "helm" {
-  kubernetes {
-    config_path            = "~/.kube/config"
-    config_context_cluster = azurerm_kubernetes_cluster.monitoring.name
-    # host                   = data.azurerm_kubernetes_cluster.monitoring.kube_config[0].host
-    # client_certificate     = base64decode(data.azurerm_kubernetes_cluster.monitoring.kube_config[0].client_certificate)
-    # client_key             = base64decode(data.azurerm_kubernetes_cluster.monitoring.kube_config[0].client_key)
-    # cluster_ca_certificate = base64decode(data.azurerm_kubernetes_cluster.monitoring.kube_config[0].cluster_ca_certificate)
-  }
-}
-
-provider "kubectl" {
-  config_context = azurerm_kubernetes_cluster.monitoring.name
-}
-
 resource "helm_release" "kube_prometheus_stack" {
   name         = "kube-prometheus-stack"
   repository   = "https://prometheus-community.github.io/helm-charts"
