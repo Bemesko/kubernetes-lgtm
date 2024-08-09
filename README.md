@@ -11,7 +11,14 @@ This repo has an environment I'm using to make tests using a full Kubernetes mon
 - [X] Change from loki-stack to grafana/loki and fluentbit separately
 - [X] Deploy my sample logging application
 - [X] Integrate Grafana with Loki
-- [ ] Install grafana/tempo to get traces
+  - [ ] Fix issues in Loki
+    - [ ] unkown service spitting ppppppppppp logs
+    - [ ] Correct parsing of logs to not show the timestamp twice
+    - [ ] Understand retention settings
+    - [ ] How to handle large volume of logs?
+    - [ ] How do retention settings work?
+- [X] Install grafana/tempo to get traces
+- [ ] Learn about associating data (metrics, logs, traces)
 
 ## References
 

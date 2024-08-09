@@ -10,5 +10,8 @@ grafana:
     - name: Loki
       type: loki
       url: http://loki-gateway.default.svc.cluster.local/
+    - name: Tempo
+      type: tempo
+      url: http://tempo.tempo.svc.cluster.local:3100
   plugins:
     - grafana-lokiexplore-app
